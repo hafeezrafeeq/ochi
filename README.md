@@ -1,26 +1,16 @@
-# Ochi Designer — Portfolio Clone (React)
+# React + Vite
 
-A **React-based clone** of the Ochi Designer portfolio — built as a learning project and to showcase frontend skills.  
-Implemented with **React**, **Tailwind CSS**, and **GSAP** for smooth animations.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Live Demo
-[Live Demo](https://your-deployed-link.vercel.app)
+Currently, two official plugins are available:
 
-## 🔧 Features
-- Built with **React + Vite** (fast dev server & build)
-- **Tailwind CSS** for styling (utility-first responsive design)
-- **GSAP animations** for smooth transitions & scroll effects
-- Responsive single-page design (mobile & desktop)
-- Sections:
-  - Hero (intro + headline animation)
-  - Projects (cards with hover & scroll-trigger animations)
-  - About (skills / short bio)
-  - Contact (links + form / CTA)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🧰 Tech Stack
-- React (with Vite or CRA)
-- Tailwind CSS
-- GSAP (GreenSock)
-- (Optional) Locomotive Scroll for smooth scrolling
+## React Compiler
 
-## 📁 Folder Structure
+The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
