@@ -1,9 +1,10 @@
 import React from 'react'
 import { IoIosArrowRoundUp } from "react-icons/io";
 
+
 function LandingPage() {
     return (
-        <div className='LandingPage py-30'>
+        <div className='LandingPage py-30 bg-zinc-900'>
             <div className='px-6 md:px-12 lg:px-14'>
                 {["We create", "eye-opening", "presentations"].map((item, index) => (
 
@@ -20,6 +21,11 @@ function LandingPage() {
                     </div>
                 ))}
             </div>
+
+
+
+
+
 
             {/* heading */}
             <div className='px-6 md:px-12 lg:px-14 border-t-2 border-zinc-700 lg:flex md:flex-none md:items-center justify-between  items-center mt-[7vw]'>
