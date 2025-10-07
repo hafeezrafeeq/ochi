@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoIosArrowRoundUp } from "react-icons/io";
 
 function About() {
     return (
@@ -44,13 +45,15 @@ function About() {
                 </div>
             </div>
 
-            <div className='flex justify-between px-6 md:px-12 lg:px-14 my-10 p-10 border-y-1 border-black'>
+            <div className='flex justify-between px-6 md:px-12 lg:px-14 mt-10 p-10 border-y-1 border-black'>
 
                 <div>
                     <h1 className='text-[3vw] '>How we can help:</h1>
                     <button className='btn-hover bg-zinc-900 text-white flex items-center rounded-4xl py-4 px-4 '>
                         <h1>READ MORE </h1>
-                        <div className='circle w-2 h-2 rounded-full bg-white  ml-[2vw]'></div>
+                        <div className=' circle w-2 h-2 flex items-center rounded-full bg-white rotate-45 ml-[2vw]'>
+                            <IoIosArrowRoundUp  className='erow text-sm text-white'/>
+                        </div>
                     </button>
                 </div>
 
