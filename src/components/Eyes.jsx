@@ -1,96 +1,118 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Eyes = () => {
-    const eyeRefs = [useRef(null), useRef(null)];
-    const [offsets, setOffsets] = useState([
-        { x: 0, y: 0 },
-        { x: 0, y: 0 },
-    ]);
+  const eyesRef = useRef([]);
+  const pupilsRef = useRef([]);
+  const targetRef = useRef([
+    { x: 0, y: 0, angle: 0 - 180 },
+    { x: 0, y: 0, angle: 0 },
+  ]);
+  const currentRef = useRef([
+    { x: 0, y: 0, angle: 0 },
+    { x: 0, y: 0, angle: 0 },
+  ]);
+  const rafRef = useRef(null);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      eyesRef.current.forEach((eyeEl, i) => {
+        if (!eyeEl) return;
 
+        const rect = eyeEl.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
 
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const dist = Math.hypot(dx, dy) || 1;
 
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            const newOffsets = eyeRefs.map((ref) => {
-                const el = ref.current;
-                if (!el) return { x: 0, y: 0 };
+        const eyeRadius = rect.width / 2;
+        const pupilSize = rect.width * 0.6; // 🟢 pupil = 60% of eye width
+        const pupilRadius = pupilSize / 2;
 
-                const rect = el.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
+        // 👁️ subtle travel limit (reduce to 35% of full possible)
+        const maxTravel = (eyeRadius - pupilRadius - 6) * 0.35;
 
-                const dx = e.clientX - centerX;
-                const dy = e.clientY - centerY;
-                const distance = Math.hypot(dx, dy) || 0.0001;
+        const ratio = Math.min(1, maxTravel / dist);
+        const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
 
-                const eyeRadius = rect.width / 4;
-                const pupilSize = rect.width * 0.35; // pupil = 35% of eye width
-                const pupilRadius = pupilSize / 2;
-                const maxDist = Math.max(0, eyeRadius - pupilRadius - 4); // keep a small padding
-
-                const ratio = Math.min(1, maxDist / distance);
-
-                return {
-                    x: dx * ratio,
-                    y: dy * ratio,
-                };
-            });
-
-            setOffsets(newOffsets);
+        targetRef.current[i] = {
+          x: dx * ratio,
+          y: dy * ratio,
+          angle,
         };
+      });
+    };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    window.addEventListener("mousemove", handleMouseMove);
 
-    const [rotate, setRotate] = useState(0);
-    useEffect(() => {
-        const handleMouseRotate = (e) => {
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+    const SMOOTH = 0.1; // smooth animation
+    const tick = () => {
+      for (let i = 0; i < eyesRef.current.length; i++) {
+        const cur = currentRef.current[i];
+        const tar = targetRef.current[i];
 
-            const deltaX = mouseX - centerX;
-            const deltaY = mouseY - centerY;
+        cur.x += (tar.x - cur.x) * SMOOTH;
+        cur.y += (tar.y - cur.y) * SMOOTH;
+        let deltaAngle = ((tar.angle - cur.angle + 540) % 360) - 180;
+        cur.angle += deltaAngle * SMOOTH;
 
-            const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-            setRotate(angle - 180);
+        const pup = pupilsRef.current[i];
+        if (pup) {
+          pup.style.transform = `translate(calc(-50% + ${cur.x}px), calc(-50% + ${cur.y}px)) rotate(${cur.angle}deg)`;
+        }
+      }
 
-        };
-        window.addEventListener("mousemove", handleMouseRotate);
-        return () => window.removeEventListener("mousemove", handleMouseRotate);
-    }, []);
+      rafRef.current = requestAnimationFrame(tick);
+    };
 
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
-
-    return (
-        <div className="bg-[#cdea68] h-screen overflow-hidden flex items-center justify-center p-8 cover bg-cover bg-center bg-[url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg')] rounded-lg">
-            {[0, 1].map((i) => (
-                <div
-                    key={i}
-                    ref={eyeRefs[i]}
-                    className="w-[15vw] h-[15vw] bg-white rounded-full mx-2 flex items-center justify-center relative"
-                >
-                    {/* Pupil */}
-                    <div
-                        style={{
-                            // center at 50%/50% then shift by calculated offsets
-                            transform: `translate(calc(-50% + ${offsets[i].x}px), calc(-50% + ${offsets[i].y}px))`,
-                            transition: "transform 0.05s linear",
-                            width: "60%",
-                            height: "60%",
-                        }}
-                        className="absolute left-1/2 top-1/2  bg-black rounded-full pointer-events-none"
-                    >
-                        {/* highlight */}
-                        <div style={{ transform: `translate(-50%, -50%) rotate(${rotate}deg)` }} className="w-1/6 h-1/6  rounded-full bg-white absolute right-12 top-1"></div>
-                    </div>
-                </div>
-            ))}
+  return (
+    <div
+      className="bg-[#cdea68] h-screen overflow-hidden flex items-center justify-center p-8 bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg')",
+      }}
+    >
+      {[0, 1].map((i) => (
+        <div
+          key={i}
+          ref={(el) => (eyesRef.current[i] = el)}
+          className="w-[15vw] h-[15vw] bg-white rounded-full mx-4 flex items-center justify-center relative overflow-hidden shadow-lg"
+        >
+          {/* pupil */}
+          <div
+            ref={(el) => (pupilsRef.current[i] = el)}
+            className="absolute left-1/2 top-1/2 bg-black rounded-full pointer-events-none"
+            style={{
+              width: "60%", // 🟢 pupil size = 60%
+              height: "60%",
+              transform: "translate(-50%, -50%)",
+              willChange: "transform",
+            }}
+          >
+            {/* highlight */}
+            <div
+              className="absolute rounded-full bg-white"
+              style={{
+                width: "18%",
+                height: "18%",
+                right: "20%",
+                top: "10%",
+              }}
+            />
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default Eyes;
