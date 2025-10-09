@@ -4,7 +4,7 @@ const Eyes = () => {
   const eyesRef = useRef([]);
   const pupilsRef = useRef([]);
   const targetRef = useRef([
-    { x: 0, y: 0, angle: 0 - 180 },
+    { x: 0, y: 0, angle: 0 },
     { x: 0, y: 0, angle: 0 },
   ]);
   const currentRef = useRef([

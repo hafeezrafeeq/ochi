@@ -45,7 +45,7 @@ function About() {
                 </div>
             </div>
 
-            <div className='flex justify-between px-6 md:px-12 lg:px-14 mt-10 p-10 border-y-1 border-black'>
+            <div className='flex justify-between px-6 md:px-12 lg:px-14 mt-10 p-10 border-t-1 border-black'>
 
                 <div>
                     <h1 className='text-[3vw] '>How we can help:</h1>
