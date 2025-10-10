@@ -8,7 +8,7 @@ import Featured from './components/featured'
 
 
 function App() {
-  
+
 
   return (
     <>
@@ -18,12 +18,29 @@ function App() {
         <GreenArea />
         <About />
         <Eyes />
-        <Featured 
-        image={"https://ochi.design/wp-content/uploads/2025/02/Salience_Website_cover-663x551.png"}
-        whiteDoth="Salience Labs"
-        btnText="BRAND  IDENTITY"
 
+        <Featured
+
+          image={"https://ochi.design/wp-content/uploads/2025/02/Salience_Website_cover-663x551.png"}
+          whiteDoth="Salience Labs"
+          btnText="BRAND  IDENTITY"
+          btnTextTwo="PITCH DECK"
         />
+
+         <Featured
+
+          image={"https://ochi.design/wp-content/uploads/2025/02/Salience_Website_cover-663x551.png"}
+          whiteDoth="Salience Labs"
+          btnText="BRAND  IDENTITY"
+          btnTextTwo="PITCH DECK"
+          className='hidden'
+        />
+
+
+        
+       
+
+
       </div>
     </>
   )
