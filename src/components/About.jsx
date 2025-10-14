@@ -49,10 +49,10 @@ function About() {
 
                 <div>
                     <h1 className='text-[3vw] '>How we can help:</h1>
-                    <button className='btn-hover bg-zinc-900 text-white flex items-center rounded-4xl py-4 px-4 '>
+                    <button className='btn-hover bg-zinc-900 text-white flex items-center rounded-4xl py-4 px-6 '>
                         <h1>READ MORE </h1>
                         <div className=' circle w-2 h-2 flex items-center rounded-full bg-white rotate-45 ml-[2vw]'>
-                            <IoIosArrowRoundUp  className='erow text-sm text-white'/>
+                            <IoIosArrowRoundUp  className='erow text-lg rounded-full text-white'/>
                         </div>
                     </button>
                 </div>
