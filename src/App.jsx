@@ -1,4 +1,5 @@
 import './App.css'
+import LocomotiveScroll from 'locomotive-scroll';
 import LandingPage from './components/LandingPage'
 import Navbar from './components/Navbar'
 import GreenArea from './components/GreenArea'
@@ -9,6 +10,7 @@ import Featured from './components/featured'
 
 function App() {
 
+const locomotiveScroll = new LocomotiveScroll();
 
   return (
     <>

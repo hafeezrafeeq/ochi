@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
+    "locomotive-scroll": "^5.0.0-beta.21",
     "motion": "^12.23.22",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
@@ -39,4 +41,3 @@
     "vite": "npm:rolldown-vite@7.1.12"
   }
 }
-

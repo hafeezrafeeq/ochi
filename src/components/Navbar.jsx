@@ -1,12 +1,20 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+
 
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
+    const boxVariants = {
+        hidden: { top: 0, opacity: 0 },
+        visible: { top: 200, opacity: 1 },
+    };
+
+
     return (
-        <div className="w-full py-5 px-6 md:px-12 lg:px-14 flex font-[neue] items-center justify-between text-white">
+        <div className="w-full py-5 px-6 md:px-12 lg:px-14 flex font-[r-neue] items-center justify-between text-white">
             {/* Logo */}
             <div className="logo">
                 <svg width="72" height="30" viewBox="0 0 72 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,20 +25,42 @@ function Navbar() {
                     <path d="M52.4097 10.1387C51.2512 10.1119 50.1066 10.3947 49.0941 10.958C48.0816 11.5212 47.2379 12.3445 46.6501 13.3427V0.172852H42.293V29.4688H46.6501C46.6501 29.1721 46.6501 18.7816 46.6501 18.7816C46.6501 15.6946 47.8619 13.4352 50.8084 13.4352C54.6046 13.4352 54.6209 17.4178 54.6209 19.6962C54.6209 22.9165 54.6209 25.5189 54.6209 28.7393V29.4987H59.0271C59.0271 29.3708 59.0488 29.2728 59.0488 29.1721C59.0488 25.5108 59.0951 21.8522 59.0325 18.1909C58.9916 15.6538 58.5015 10.1387 52.4097 10.1387Z" fill="currentColor"></path>
                 </svg>
             </div>
-          
+
 
             {/* Desktop Links */}
-            <div className="hidden text-md font-[neue] md:flex gap-8">{["Services", "Our Work", "About Us", "Insights", "Contact Us"].map(
+            <motion.div
+                variants={boxVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.6 }}
+                className="hidden md:flex gap-8 text-md font-[neue]">
+                {["Services", "Our Work", "About Us", "Insights", "Contact Us"].map(
                     (item, index) => (
-                        <a key={index} href="#"
-                            className={`hover:text-gray-300 transition ${index == 4 && "ml-[18vw]"}`}>
+                        <motion.a
+                            key={index}
+                            href="#"
+                            className={`relative pb-[4px] ${index === 4 && "ml-[18vw]"}`}
+                            initial="rest"
+                            whileHover="hovered"
+                            animate="rest"
+                        >
                             {item}
-                        </a>
-                    )
-                )}
-            </div>
 
-              {/* Links */}
+                            {/* underline animation */}
+                            <motion.span
+                                variants={{
+                                    rest: { width: 0 },
+                                    hovered: { width: "100%" },
+                                }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="absolute left-0 bottom-0 h-[2px] bg-[#f1f1f1]"
+                            />
+                        </motion.a>
+                    ))}
+            </motion.div>
+
+
+            {/* Links */}
             <div className="md:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}

@@ -1,5 +1,7 @@
+import { motion } from "motion/react"
 import React from 'react'
 import { IoIosArrowRoundUp } from "react-icons/io";
+
 
 
 function LandingPage() {
@@ -9,8 +11,15 @@ function LandingPage() {
                 {["We create", "eye-opening", "presentations"].map((item, index) => (
 
                     <div className='heading flex items-center' key={index}>
+
                         {index === 1 && (
-                            <div className=" w-[8vw] h-[5.4vw] mr-[1vw] relative top-[0.4vw] rounded-md bg-green-700"></div>
+                            <motion.img   
+                            initial={{width:0}}
+                            animate={{width:"8.5vw"}}
+                            transition={{ease:[0.76, 0, 0.24, 1], duration:2}}                            
+                            src="https://ochi.design/wp-content/uploads/2022/04/content-image01.jpg"
+                            className="w-[8.5vw] h-[5.4vw] mr-[0.5vw] object-cover overflow-hidden relative top-[0.4vw] rounded-md">                                
+                             </motion.img>
                         )}
 
                         <h1 className="font-[founders] text-[8.5vw] leading-[6vw] uppercase">
