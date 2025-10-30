@@ -6,8 +6,8 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 
 function LandingPage() {
     return (
-        <div className='LandingPage py-30 bg-zinc-900'>
-            <div className='px-6 md:px-12 lg:px-14'>
+        <div className='LandingPage relative  h-screen bg-zinc-900'>
+            <div className='px-6 md:px-12 lg:px-14 pt-40'>
                 {["We create", "eye-opening", "presentations"].map((item, index) => (
 
                     <div className='heading flex items-center' key={index}>

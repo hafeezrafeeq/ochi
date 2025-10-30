@@ -1,3 +1,4 @@
+import { div } from "framer-motion/client";
 import React, { useEffect, useRef } from "react";
 
 const Eyes = () => {
@@ -74,43 +75,50 @@ const Eyes = () => {
   }, []);
 
   return (
-    <div
-      className="bg-[#cdea68] h-screen overflow-hidden flex items-center justify-center p-8 bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg')",
-      }}
-    >
-      {[0, 1].map((i) => (
-        <div
-          key={i}
-          ref={(el) => (eyesRef.current[i] = el)}
-          className="w-[15vw] h-[15vw] bg-white rounded-full mx-4 flex items-center justify-center relative overflow-hidden shadow-lg"
-        >
-          {/* pupil */}
+    <div className="h-screen  overflow-hidden bg-[#e6e6e6]">
+
+      <div
+        data-scroll data-scroll-speed="-.7"
+        className=" flex items-center h-full justify-center p-8 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-scaled.jpg')",
+        }}
+      >
+        {[0, 1].map((i) => (
           <div
-            ref={(el) => (pupilsRef.current[i] = el)}
-            className="absolute left-1/2 top-1/2 bg-black rounded-full pointer-events-none"
-            style={{
-              width: "60%", // 🟢 pupil size = 60%
-              height: "60%",
-              transform: "translate(-50%, -50%)",
-              willChange: "transform",
-            }}
+            key={i}
+            ref={(el) => (eyesRef.current[i] = el)}
+
+            className="w-[15vw] h-[15vw] bg-white rounded-full mx-4 flex items-center justify-center relative overflow-hidden shadow-lg"
           >
-            {/* highlight */}
+            {/* pupil */}
             <div
-              className="absolute rounded-full bg-white"
+
+              ref={(el) => (pupilsRef.current[i] = el)}
+
+              className="absolute left-1/2 top-1/2 bg-black rounded-full pointer-events-none"
               style={{
-                width: "18%",
-                height: "18%",
-                right: "20%",
-                top: "10%",
+                width: "60%", // 🟢 pupil size = 60%
+                height: "60%",
+                transform: "translate(-50%, -50%)",
+                willChange: "transform",
               }}
-            />
+            >
+              {/* highlight */}
+              <div
+                className="absolute rounded-full bg-white"
+                style={{
+                  width: "18%",
+                  height: "18%",
+                  right: "20%",
+                  top: "10%",
+                }}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

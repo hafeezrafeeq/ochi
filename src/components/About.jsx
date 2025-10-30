@@ -1,10 +1,11 @@
 import React from 'react'
 import { IoIosArrowRoundUp } from "react-icons/io";
+import { motion } from "motion/react"
 
 function About() {
     return (
-        <div data-scroll  data-scroll-speed='-.25' data-scroll-section 
-        className='bg-[#cdea68] text-zinc-900 font-[r-neue]'>
+        <div data-scroll data-scroll-speed="-.05" 
+        className='bg-[#cdea68] text-zinc-900 font-[r-neue] z-40'>
             <h1 className='p-[4vw] pt-[6vw] text-[3vw] border-b-1 leading-12'>
                 We craft category-defining presentations, brand <br />
                 identities, and digital experiences that <span className='underline decoration-2 underline-offset-8'>drive funding,<br />sales, </span>
