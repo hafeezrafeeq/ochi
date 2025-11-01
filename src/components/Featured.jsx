@@ -55,12 +55,12 @@ function Featured({ image1, image2, whiteDoth1, whiteDoth2, className = "", anim
 
                     <div className='group'>
 
-                        <motion.h1
+                        <h1
                             initial={{ opacity: 0, y: 50 }}      
                             animate={{ opacity: 10, y: 0 }}    
                             transition={{ duration: 1, ease: "easeOut" }} 
                             className='absolute top-1/2 left-1/2 transform  -translate-x-1/2 
-                -translate-y-1/2  text-[6vw] text-[#cdea68] font-bold text-center z-[999] hidden  group-hover:block'>{animyText2}</motion.h1>
+                -translate-y-1/2  text-[6vw] text-[#cdea68] font-bold text-center z-[999] hidden  group-hover:block'>{animyText2}</h1>
 
                         <div className='flex items-center py-4'>
                             <div className='w-3 h-3 mr-[0.5vw] rounded-full bg-[#212121]'></div>
