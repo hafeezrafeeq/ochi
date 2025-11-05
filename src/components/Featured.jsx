@@ -11,7 +11,7 @@ function Featured({
   animyText1 = "HOVER LEFT",
   animyText2 = "HOVER RIGHT",
 }) {
-  // 🟢 Refs for both sides
+  //  Refs for both sides
   const leftTextRef = useRef(null);
   const rightTextRef = useRef(null);
 
@@ -36,7 +36,7 @@ function Featured({
     leftTextRef.current.addEventListener("mouseleave", () => tl.reverse());
   }, []);
 
-  // 🟢 RIGHT side animation
+
   useGSAP(() => {
     const letters = rightTextRef.current.querySelectorAll(".char-right");
 
@@ -57,7 +57,7 @@ function Featured({
     rightTextRef.current.addEventListener("mouseleave", () => tl.reverse());
   }, []);
 
-  // 🧩 Split both texts
+
   const splitTextLeft = animyText1.split("").map((char, i) => (
     <span key={i} className="char-left inline-block">
       {char === " " ? "\u00A0" : char}
@@ -71,7 +71,7 @@ function Featured({
   ));
 
   return (
-    <div className="w-full px-6 z-50 md:px-12 lg:px-14 font-[r-neue] pt-10 pb-30 bg-[#b2b2b2] text-black">
+    <div className="w-full px-6 z-50 md:px-12 lg:px-14 font-[r-neue] pt-10 pb-30 bg-[#f1f1f1] text-black">
       <h1
         className={`text-[4vw] mb-6 py-4 border-b-2 border-[#b2b2b2] ${className}`}
       >
@@ -85,7 +85,7 @@ function Featured({
             {/* Animated Text */}
             <h1
               className="textAnimation absolute top-1/2 left-1/2 transform -translate-x-1/2 
-                -translate-y-1/2 text-[6vw] text-[#cdea68] font-bold text-center z-[999] hidden group-hover:inline-block"
+                -translate-y-1/2 text-[6vw] text-[#cdea68] font-[founders] font-bold text-center z-[999] hidden group-hover:inline-block"
             >
               {splitTextLeft}
             </h1>
@@ -127,7 +127,7 @@ function Featured({
           <div className="group " ref={rightTextRef}>
             <h1
               className="textAnimation absolute top-1/2 left-1/2 transform -translate-x-1/2 
-                -translate-y-1/2 text-[6vw] text-[#cdea68] font-bold text-center z-[999] hidden group-hover:inline-block"
+                -translate-y-1/2 text-[6vw] text-[#cdea68] font-[founders] font-bold text-center z-[999] hidden group-hover:inline-block"
             >
               {splitTextRight}
             </h1>

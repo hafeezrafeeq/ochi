@@ -6,6 +6,9 @@ import GreenArea from './components/GreenArea'
 import About from './components/About'
 import Eyes from './components/Eyes'
 import Featured from './components/featured'
+import Reviews from './components/Reviews';
+import StartProject from './components/StartProject';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -14,7 +17,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full  bg-zinc-900 text-white'>
+      <div className='w-full h-auto bg-[#f1f1f1] text-white'>
         <Navbar />
         <LandingPage />
         <GreenArea />
@@ -27,8 +30,8 @@ function App() {
             image2={"https://ochi.design/wp-content/uploads/2025/08/Med_Website_0.png"}
             whiteDoth1="Salience Labs"
             whiteDoth2="Medallia Experience"
-            animyText1="hafeez"
-            animyText2="rafeeq"
+            animyText1="SALIENCE LABS"
+            animyText2="MEDALLIAL EXPEPIENCE"
           />
 
           <Featured
@@ -38,6 +41,8 @@ function App() {
             whiteDoth1="AH2 & Matt Horn"
             whiteDoth2="Vise"
             className='hidden mt-[20]'
+            animyText1="A2H MATTHORN"
+            animyText2="VISE"
           />
 
           <Featured
@@ -47,8 +52,14 @@ function App() {
             whiteDoth1="soft start"
             whiteDoth2="fyde"
             className='hidden mt-[20]'
+            animyText1="SOFT START"
+            animyText2="FYDE"
           />
         </div>
+
+        <Reviews />
+        <StartProject />
+        <Footer />
 
 
 
