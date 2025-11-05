@@ -18,10 +18,13 @@ function App() {
   return (
     <>
       <div className='w-full h-auto bg-[#f1f1f1] text-white'>
-        <Navbar />
-        <LandingPage />
-        <GreenArea />
+        <div className='bg-zinc-900'>
+          <Navbar />
+          <LandingPage />
+          <GreenArea />
+        </div>
         <About />
+
         <Eyes />
         <div>
           <Featured
