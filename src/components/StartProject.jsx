@@ -2,6 +2,7 @@ import React from 'react'
 import Eyes from './Eyes'
 
 import { useEffect, useRef } from "react";
+import { div } from 'framer-motion/client';
 
 function StartProject() {
 
@@ -78,8 +79,8 @@ function StartProject() {
     }, []);
 
     return (
-        <div
-            data-scroll data-scroll-speed='-.12' data-scroll-section
+        <div className='bg-[#cdea68]'>
+        <div data-scroll data-scroll-speed='0.2' data-scroll-section
             className=' w-full h-screen bg-[#cdea68] relative py-[8vw]'>
             <h1 className='font-[founders]  text-black text-center text-[16vw] leading-[12vw] uppercase'>Ready <br />
                 to start <br />
@@ -120,6 +121,9 @@ function StartProject() {
             ))}
             </div>
 
+        </div>
+
+        <div data-scroll-speed='.2' data-scroll-section className='bg-[#cdea68] h-20' ></div>
         </div>
     )
 }

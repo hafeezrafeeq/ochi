@@ -6,7 +6,8 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 
 function LandingPage() {
     return (
-        <div className='LandingPage relative  h-screen bg-zinc-900'>
+        <div data-scroll data-scroll-speed='.2' data-scroll-section
+        className='LandingPage relative  h-screen bg-zinc-900'>
             <div className='px-6 md:px-12 lg:px-14 pt-40'>
                 {["We create", "eye-opening", "presentations"].map((item, index) => (
 
