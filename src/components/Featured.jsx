@@ -71,7 +71,7 @@ function Featured({
   ));
 
   return (
-    <div className="w-full px-6 z-50 md:px-12 lg:px-14 font-[r-neue] pt-10 pb-30 bg-[#f1f1f1] text-black">
+    <div id="services" className="w-full px-6 z-50 md:px-12 lg:px-14 font-[r-neue] pt-10 pb-30 bg-[#f1f1f1] text-black">
       <h1
         className={`text-[4vw] mb-6 py-4 border-b-2 border-[#b2b2b2] ${className}`}
       >

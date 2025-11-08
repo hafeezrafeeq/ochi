@@ -79,7 +79,7 @@ function StartProject() {
     }, []);
 
     return (
-        <div className='bg-[#cdea68]'>
+        <div id="startProject"  className='bg-[#cdea68]'>
         <div data-scroll data-scroll-speed='0.2' data-scroll-section
             className=' w-full h-screen bg-[#cdea68] relative py-[8vw]'>
             <h1 className='font-[founders]  text-black text-center text-[16vw] leading-[12vw] uppercase'>Ready <br />

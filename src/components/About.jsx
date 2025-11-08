@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 
 function About() {
     return (
-        <div data-scroll data-scroll-speed="-0.4" data-scroll-section
+        <div id='about' data-scroll data-scroll-speed="-0.2" data-scroll-section
         className='bg-[#cdea68] text-zinc-900 font-[r-neue] z-40'>
             <h1 className='p-[4vw] pt-[6vw] text-[3vw] border-b-1 leading-12'>
                 We craft category-defining presentations, brand <br />

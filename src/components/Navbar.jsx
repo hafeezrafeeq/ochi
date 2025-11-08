@@ -60,17 +60,32 @@ function Navbar() {
                 transition={{ duration: 0.6 }}
                 className="hidden md:flex gap-8 text-md font-[neue]"
             >
-                {["Services", "Our Work", "About Us", "Insights", "Contact Us"].map(
+                {[
+                    { name: "Home", link: "#home" },
+                    { name: "About Us", link: "#about" },
+                    { name: "Services", link: "#services" },
+                    { name: "Insights", link: "#startProject"},
+                    { name: "Content", },
+
+
+                ].map(
                     (item, index) => (
                         <motion.a
                             key={index}
-                            href="#"
+                            href={item.link}
                             className={`relative pb-[4px] ${index === 4 && "ml-[18vw]"}`}
                             initial="rest"
                             whileHover="hovered"
                             animate="rest"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const element = document.querySelector(item.link);
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
                         >
-                            {item}
+                            {item.name}
                             <motion.span
                                 variants={{
                                     rest: { width: 0 },

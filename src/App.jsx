@@ -28,7 +28,6 @@ function App() {
         <Eyes />
         <div>
           <Featured
-
             image1={"https://ochi.design/wp-content/uploads/2025/02/Salience_Website_cover-663x551.png"}
             image2={"https://ochi.design/wp-content/uploads/2025/08/Med_Website_0.png"}
             whiteDoth1="Salience Labs"
@@ -38,7 +37,6 @@ function App() {
           />
 
           <Featured
-
             image1={"https://ochi.design/wp-content/uploads/2024/08/Frame-481692-1-1326x1101.png"}
             image2={"https://ochi.design/wp-content/uploads/2025/02/Vise_Front-1-663x551.png"}
             whiteDoth1="AH2 & Matt Horn"
@@ -49,7 +47,6 @@ function App() {
           />
 
           <Featured
-
             image1={"https://ochi.design/wp-content/uploads/2022/06/Frame-3898-1-663x551.jpg"}
             image2={"https://ochi.design/wp-content/uploads/2025/02/Fyde_Front-1-1326x1101.png"}
             whiteDoth1="soft start"
