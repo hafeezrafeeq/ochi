@@ -14,7 +14,7 @@ function Reviews() {
     ];
     return (
         <div data-scroll data-scroll-speed="-0.5"
-            className='bg-[#f1f1f1] text-zinc-900 pb-40 mt-[25vw] font-[r-neue] z-40'>
+            className='bg-[#f1f1f1] text-zinc-950 pb-40 mt-[25vw] font-[r-neue] z-40'>
             <h1 className='p-[4vw] pt-[6vw] text-[3vw] border-b-1 leading-12'>
                 Clients’ Reviews
             </h1>

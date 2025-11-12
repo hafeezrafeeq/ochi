@@ -15,7 +15,7 @@ function Footer() {
             <div data-scroll data-scroll-speed='-0.1' >
                 <div className='w-full min-h-screen bg-[#f1f1f1] flex z-999'>
                     <div className='w-[50%] p-12 flex flex-col gap-90 justify-between'>
-                        <h1 className='font-[founders] text-[8vw] leading-30 uppercase text-black'>eye- <br />
+                        <h1 className='font-[founders] text-[8vw] leading-30 uppercase text-black'>EYE- <br />
                             opening</h1>
 
                         <div className="logo text-black">
