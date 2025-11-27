@@ -24,7 +24,6 @@ function App() {
           <GreenArea />
         </div>
         <About />
-
         <Eyes />
         <div>
           <Featured
@@ -35,7 +34,6 @@ function App() {
             animyText1="SALIENCE LABS"
             animyText2="MEDALLIAL EXPEPIENCE"
           />
-
           <Featured
             image1={"https://ochi.design/wp-content/uploads/2024/08/Frame-481692-1-1326x1101.png"}
             image2={"https://ochi.design/wp-content/uploads/2025/02/Vise_Front-1-663x551.png"}
@@ -45,7 +43,6 @@ function App() {
             animyText1="A2H MATTHORN"
             animyText2="VISE"
           />
-
           <Featured
             image1={"https://ochi.design/wp-content/uploads/2022/06/Frame-3898-1-663x551.jpg"}
             image2={"https://ochi.design/wp-content/uploads/2025/02/Fyde_Front-1-1326x1101.png"}
@@ -56,16 +53,9 @@ function App() {
             animyText2="FYDE"
           />
         </div>
-
         <Reviews />
         <StartProject />
         <Footer />
-
-
-
-
-
-
       </div>
     </>
   )
